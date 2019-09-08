@@ -1,6 +1,5 @@
 #include <stdio.h>
-// #include "LinkedList.h"
-#include "Data.h"
+#include "LinkedList.h"
 
 typedef struct {
   int a;
@@ -9,31 +8,24 @@ typedef struct {
 
 int main() {
 
-  uint l = sizeof(Peso);
+  uint s = sizeof(Peso);
   int i;
   int pos;
 
   Peso p;
 
-  Data d;
-  DataInit(&d);
+  LinkedList l;
+  linkedListInit(&l, s);
 
   for(i=0; i < 20; i++) {
     p.a = 10 * (i+1);
     p.b = 'a' + i;
 
-    DataInsertAt(&d, 0, &p, l);
+    pos = linkedListInsertAt(&l, i, &p);
+    printf("%d, ", pos);
   }
 
-  p.a = 0;
-  p.b = 'z';
-
-  while(1) {
-    scanf("%d", &pos);
-    DataAt(&d, pos, &p, l);
-    // DataRemoveAt(&d, pos);
-    printf("%d, %c.\n", p.a, p.b); 
-  }
+  printf("\ndone\n");
 
 
   return 0;

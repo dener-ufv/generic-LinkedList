@@ -36,7 +36,7 @@ int DataInsertAt(Data *data, uint index, Item value, uint itemLength) {
     return 0;
   }
   Data iterator = *data;
-  while(index--) {
+  while(--index) {
     iterator = iterator->next;
   }
   Data next = iterator->next;
